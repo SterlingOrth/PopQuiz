@@ -3,6 +3,12 @@ var startButton = document.getElementById("start-btn");
 var questionContainerElement = document.getElementById
 ('question-container')
 
+var questionElement = document.getElementById('question')
+var answerButtonsElement = document.getElementById("answer-buttons")
+
+// random question placement variable stored in global memory
+let shuffleQuestions, currentQuestionIndex
+
 
 // adding click event listener to begin the game
 startButton.addEventListener("click", startGame)
@@ -13,17 +19,24 @@ startButton.addEventListener("click", startGame)
 
 
 
+
 // function to begin the game and start the timer**
 function startGame() {
-console.log('Its working!');
-startButton.classList.add("hide");
-questionContainerElement.classList.remove("hide");
-displayNextQuestion();
+console.log('Its working!')
+startButton.classList.add("hide")
+shuffleQuestions = questions.sort(() => Math.random() - .5)
+currentQuestionIndex = 0
+questionContainerElement.classList.remove("hide")
+startNextQuestion()
 }
 
 // function to advance user to next question
 function startNextQuestion() {
+displayQuestion(shuffleQuestions[currentQuestionIndex])
+}
 
+function displayQuestion(question){
+    questionElement.innerText = question.question
 }
 
 // function to log user choice and return 'correct or incorrect'
@@ -34,16 +47,17 @@ function userChoice () {
 
 // array of question and answers
 // variable array of objects with questions and an answer array with an object for each button
-// var questionList = [
-//     {
-//         question: "Will you Choose A, B, C or D... I wonder?"
-//         answer: [
-//             {text: "Correct answer"}
-//             {text: "False #1"}
-//             {text: "False #2"}
-//             {text: "False #3"}
-//         ]
-//     }
+var questions = [
+    {
+        question: "Will you Choose A, B, C or D... I wonder?",
+        answers: [
+            {text: "Correct answer", correct: true},
+            {text: "False #1", correct: false},
+            {text: "False #2", correct: false},
+            {text: "False #3", correct: false},
+        ]
+    }
+]
 
 
 
