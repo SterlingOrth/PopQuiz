@@ -18,12 +18,12 @@ body {
 
 .container {
   width: 500px;
-  height: 75%;
+  height: 55%;
   border-style: solid;
   border-width: 5px 20px 10px 5px;
   background-color: red;
   box-shadow: 0 0 20px 5px;
-  padding: 15px;
+  padding: 25px;
 }
 
 .btn-grid {
@@ -44,6 +44,25 @@ body {
   color: white;
   border-color: white;
   border-radius: thick;
+}
+
+.start-btn,
+.next-btn {
+  font-family: fantasy, "Times New Roman", Times, serif;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+  padding: 5px 35px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
 }
 
 /* #answer-buttons {
