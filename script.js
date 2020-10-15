@@ -6,9 +6,6 @@
 // setInterval(function(){ alert("Hello"); }, 3000);
 
 
-alert("Hello")
-
-
 
 
 
