@@ -1,3 +1,57 @@
+// declaring variables in global memory
+var startButton = document.getElementById("start-btn");
+var questionContainerElement = document.getElementById
+('question-container')
+
+
+// adding click event listener to begin the game
+startButton.addEventListener("click", startGame)
+
+
+
+
+
+
+
+// function to begin the game and start the timer**
+function startGame() {
+console.log('Its working!');
+startButton.classList.add("hide");
+questionContainerElement.classList.remove("hide");
+displayNextQuestion();
+}
+
+// function to advance user to next question
+function startNextQuestion() {
+
+}
+
+// function to log user choice and return 'correct or incorrect'
+
+function userChoice () {
+
+}
+
+// array of question and answers
+// variable array of objects with questions and an answer array with an object for each button
+// var questionList = [
+//     {
+//         question: "Will you Choose A, B, C or D... I wonder?"
+//         answer: [
+//             {text: "Correct answer"}
+//             {text: "False #1"}
+//             {text: "False #2"}
+//             {text: "False #3"}
+//         ]
+//     }
+
+
+
+
+
+
+
+
 // Variables to count correct answers 
 // var timer = 
 
@@ -8,93 +62,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // // Sample
-// var questionList = [
-//     {
-//         question: "First question here?\n(a) CHOICE ONE\n\
-//                     (b) CHOICE TWO/n(c) CHOICE THREE",
-//         answer: "ABorC"
-//     },
-//     {
-//         question: "First question here?\n(a) CHOICE ONE\n\
-//                     (b) CHOICE TWO/n(c) CHOICE THREE",
-//         answer: "ABorC"
-//     },
-//     {
-//         question: "First question here?\n(a) CHOICE ONE\n\
-//                     (b) CHOICE TWO/n(c) CHOICE THREE",
-//         answer: "ABorC"
-//     },
-//     {
-//         question: "First question here?\n(a) CHOICE ONE\n\
-//                     (b) CHOICE TWO/n(c) CHOICE THREE",
-//         answer: "ABorC"
-//     },
-//     {
-//         question: "First question here?\n(a) CHOICE ONE\n\
-//                     (b) CHOICE TWO/n(c) CHOICE THREE",
-//         answer: "ABorC"
-//     },
-//     {
-//         question: "First question here?\n(a) CHOICE ONE\n\
-//                     (b) CHOICE TWO/n(c) CHOICE THREE",
-//         answer: "ABorC"
-//     },
-//     {
-//         question: "First question here?\n(a) CHOICE ONE\n\
-//                     (b) CHOICE TWO/n(c) CHOICE THREE",
-//         answer: "ABorC"
-//     },
-//     {
-//         question: "First question here?\n(a) CHOICE ONE\n\
-//                     (b) CHOICE TWO/n(c) CHOICE THREE",
-//         answer: "ABorC"
-//     },
-//     {
-//         question: "First question here?\n(a) CHOICE ONE\n\
-//                     (b) CHOICE TWO/n(c) CHOICE THREE",
-//         answer: "ABorC"
-//     },
-//     {
-//         question: "First question here?\n(a) CHOICE ONE\n\
-//                     (b) CHOICE TWO/n(c) CHOICE THREE",
-//         answer: "ABorC"
-//     },
-//    ]
 // var correctAnswer = 0;
 
 // // For loop to register correct guesses
@@ -121,10 +89,4 @@
 // // First question with 4 clickable 'buttons'
 // // If for correct statement Else for false answers and push results to variables 'correct' and 'incorrect'
 // // After question 10, return 'correct' and 'incorrect' results,
-// // stop timer, followed by "You Won" or "You Lost" with >= 6 in correctCounter
-
-
-
-
-
-// // clearTimeout( return ID of setTimeout() );
+//  Timer stops on last question click
