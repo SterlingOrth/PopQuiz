@@ -1,5 +1,6 @@
 // declaring variables in global memory
-var startButton = document.getElementById("start-btn");
+var startButton = document.getElementById("start-btn")
+var nextButton = document.getElementById('next-btn')
 var questionContainerElement = document.getElementById
 ('question-container')
 
@@ -13,13 +14,6 @@ let shuffleQuestions, currentQuestionIndex
 // adding click event listener to begin the game
 startButton.addEventListener("click", startGame)
 
-
-
-
-
-
-
-
 // function to begin the game and start the timer**
 function startGame() {
 console.log('Its working!')
@@ -32,24 +26,63 @@ startNextQuestion()
 
 // function to advance user to next question
 function startNextQuestion() {
+    resetState()
 displayQuestion(shuffleQuestions[currentQuestionIndex])
 }
 
-function displayQuestion(question){
+function displayQuestion(question) {
     questionElement.innerText = question.question
+    question.answers.forEach(answer => {
+        var button = document.createElement('button')
+        button.innerText = answer.text
+        button.classList.add('btn')
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+            button.addEventListener('click', userChoice)
+        answerButtonsElement.appendChild(button)
+    })
 }
 
 // function to log user choice and return 'correct or incorrect'
 
-function userChoice () {
+function resetState() {
+    nextButton.classList.add('hide')
+    while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild(answerButtonsElement.firstChild)
 
+    }
+}
+
+function userChoice (e) {
+    var selectedButton = e.target
+    var correct = selectedButton.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(answerButtonsElement.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
+    nextButton.classList.remove('hide')
+}
+
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+        element.classList.add('correct')
+    } else { 
+        element.classList.add('wrong')
+    }
+}
+
+function clearStatusClass(element) {
+    element.classList.remove('wrong')
+    element.classList.remove('wrong')
 }
 
 // array of question and answers
 // variable array of objects with questions and an answer array with an object for each button
 var questions = [
     {
-        question: "Will you Choose A, B, C or D... I wonder?",
+        question: "Will you Choose A, B, C or D... I wonder??",
         answers: [
             {text: "Correct answer", correct: true},
             {text: "False #1", correct: false},
