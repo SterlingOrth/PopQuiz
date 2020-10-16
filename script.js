@@ -13,6 +13,10 @@ let shuffleQuestions, currentQuestionIndex
 
 // adding click event listener to begin the game
 startButton.addEventListener("click", startGame)
+nextButton.addEventListener('click', () => {
+    currentQuestionIndex++
+    startNextQuestion()
+})
 
 // function to begin the game and start the timer**
 function startGame() {
@@ -61,9 +65,13 @@ function userChoice (e) {
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
-    nextButton.classList.remove('hide')
+    if (shuffleQuestions.length > currentQuestionIndex + 1) {
+        nextButton.classList.remove('hide')
+    } else {
+    startButton.innerText = 'Restart',
+    startButton.classList.remove("hide")
+    }
 }
-
 function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
@@ -81,6 +89,87 @@ function clearStatusClass(element) {
 // array of question and answers
 // variable array of objects with questions and an answer array with an object for each button
 var questions = [
+    {
+        question: "Will you Choose A, B, C or D... I wonder??",
+        answers: [
+            {text: "Correct answer", correct: true},
+            {text: "False #1", correct: false},
+            {text: "False #2", correct: false},
+            {text: "False #3", correct: false},
+        ]
+    },
+    {
+        question: "Will you Choose A, B, C or D... I wonder??",
+        answers: [
+            {text: "Correct answer", correct: true},
+            {text: "False #1", correct: false},
+            {text: "False #2", correct: false},
+            {text: "False #3", correct: false},
+        ]
+    },
+    {
+        question: "Will you Choose A, B, C or D... I wonder??",
+        answers: [
+            {text: "Correct answer", correct: true},
+            {text: "False #1", correct: false},
+            {text: "False #2", correct: false},
+            {text: "False #3", correct: false},
+        ]
+    },
+    {
+        question: "Will you Choose A, B, C or D... I wonder??",
+        answers: [
+            {text: "Correct answer", correct: true},
+            {text: "False #1", correct: false},
+            {text: "False #2", correct: false},
+            {text: "False #3", correct: false},
+        ]
+    },
+    {
+        question: "Will you Choose A, B, C or D... I wonder??",
+        answers: [
+            {text: "Correct answer", correct: true},
+            {text: "False #1", correct: false},
+            {text: "False #2", correct: false},
+            {text: "False #3", correct: false},
+        ]
+    },
+    {
+        question: "Will you Choose A, B, C or D... I wonder??",
+        answers: [
+            {text: "Correct answer", correct: true},
+            {text: "False #1", correct: false},
+            {text: "False #2", correct: false},
+            {text: "False #3", correct: false},
+        ]
+    },
+    {
+        question: "Will you Choose A, B, C or D... I wonder??",
+        answers: [
+            {text: "Correct answer", correct: true},
+            {text: "False #1", correct: false},
+            {text: "False #2", correct: false},
+            {text: "False #3", correct: false},
+        ]
+    },
+    {
+        question: "Will you Choose A, B, C or D... I wonder??",
+        answers: [
+            {text: "Correct answer", correct: true},
+            {text: "False #1", correct: false},
+            {text: "False #2", correct: false},
+            {text: "False #3", correct: false},
+        ]
+    },
+    {
+        question: "Will you Choose A, B, C or D... I wonder??",
+        answers: [
+            {text: "Correct answer", correct: true},
+            {text: "False #1", correct: false},
+            {text: "False #2", correct: false},
+            {text: "False #3", correct: false},
+        ]
+    },
     {
         question: "Will you Choose A, B, C or D... I wonder??",
         answers: [
