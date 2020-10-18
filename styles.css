@@ -65,6 +65,26 @@ body {
   display: none;
 }
 
+.timer {
+  font-family: bold;
+  font-size: larger;
+  font-weight: bolder; /* 
+  /* color: dodgerblue;
+  background-color: whitesmoke;
+  border-radius: 3px;
+  padding: 4px 4px; */
+}
+
+.question {
+  font-family: bold;
+  font-size: larger;
+  font-weight: bolder;
+  color: dodgerblue;
+  background-color: whitesmoke;
+  border-radius: 3px;
+  padding: 4px 4px;
+}
+
 /* #answer-buttons {
   font-size: ;
 } */

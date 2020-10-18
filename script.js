@@ -3,6 +3,7 @@ var startButton = document.getElementById("start-btn")
 var nextButton = document.getElementById('next-btn')
 var questionContainerElement = document.getElementById
 ('question-container')
+var timerEl = document.getElementById("timer");
 
 var questionElement = document.getElementById('question')
 var answerButtonsElement = document.getElementById("answer-buttons")
@@ -18,40 +19,56 @@ nextButton.addEventListener('click', () => {
     startNextQuestion()
 })
 
+// timer
+function setTime() {
+    var timeLeft = 120;
+  
+    var timeInterval = setInterval(function() {
+      timerEl.textContent = timeLeft + " seconds remaining";
+      timeLeft--;
+  
+      if (timeLeft === 0) {
+        endGame();
+         }
+  
+    }, 1000);
+  }
+
 // function to begin the game and start the timer**
 function startGame() {
-console.log('Its working!')
-startButton.classList.add("hide")
-shuffleQuestions = questions.sort(() => Math.random() - .5)
-currentQuestionIndex = 0
-questionContainerElement.classList.remove("hide")
-startNextQuestion()
+console.log('Its working!');
+startButton.classList.add("hide");
+setTime();
+shuffleQuestions = questions.sort(() => Math.random() - .5);
+currentQuestionIndex = 0;
+questionContainerElement.classList.remove("hide");
+startNextQuestion();
 }
 
 // function to advance user to next question
 function startNextQuestion() {
-    resetState()
-displayQuestion(shuffleQuestions[currentQuestionIndex])
+    resetState();
+displayQuestion(shuffleQuestions[currentQuestionIndex]);
 }
 
 function displayQuestion(question) {
     questionElement.innerText = question.question
     question.answers.forEach(answer => {
-        var button = document.createElement('button')
+        var button = document.createElement('button');
         button.innerText = answer.text
-        button.classList.add('btn')
+        button.classList.add('btn');
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
-            button.addEventListener('click', userChoice)
-        answerButtonsElement.appendChild(button)
+            button.addEventListener('click', userChoice);
+        answerButtonsElement.appendChild(button);
     })
 }
 
 // function to log user choice and return 'correct or incorrect'
 
 function resetState() {
-    nextButton.classList.add('hide')
+    nextButton.classList.add('hide');
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
 
@@ -61,15 +78,15 @@ function resetState() {
 function userChoice (e) {
     var selectedButton = e.target
     var correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
+    setStatusClass(document.body, correct);
     Array.from(answerButtonsElement.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct)
+        setStatusClass(button, button.dataset.correct);
     })
     if (shuffleQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide')
     } else {
     startButton.innerText = 'Restart',
-    startButton.classList.remove("hide")
+    startButton.classList.remove("hide");
     }
 }
 function setStatusClass(element, correct) {
